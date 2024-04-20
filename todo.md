@@ -1,0 +1,3 @@
+ - Compile the syntax tree to graphics(SVG)
+ - Clean the parser with parsing combinators
+ - Allow special characters in text

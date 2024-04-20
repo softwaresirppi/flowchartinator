@@ -1,0 +1,23 @@
+SPACES -> '' | ' ' | SPACES
+TEXT -> SPACES sequence of alphabets
+
+STEP -> SPACES TEXT SPACES ';'
+
+BLOCK -> SPACES '{' ACTIONS '}'
+
+IF ->
+  SPACES 'if' SPACES '(' TEXT SPACES ')'
+    ACTION
+  ('' | SPACES 'else' ' '
+    ACTION)
+
+WHILE ->
+  SPACES 'while' SPACES '(' TEXT SPACES ')'
+    ACTION
+
+FOR ->
+  SPACES 'for' SPACES '(' TEXT SPACES ';' TEXT SPACES ';' TEXT SPACES ')'
+    ACTION;
+
+ACTION -> IF | WHILE | FOR | BLOCK | STEP
+ACTIONS -> '' | ACTION | ACTIONS
