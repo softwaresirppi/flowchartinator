@@ -58,7 +58,7 @@ def html(node):
     <div class="column">
         {html(node.cond)}
         <div class="row">
-            <div class="column" style="border-bottom: 8px solid white;">
+            <div class="column" style="border-bottom: 12px solid white;">
                 <div class="yes"> YES </div>
                 {html(node.stmt)}
             </div>
@@ -78,7 +78,7 @@ def html(node):
         <div class="column">
             {html(node.cond)} 
             <div class="row">
-                <div class="column" style="border-bottom: 8px solid white;">
+                <div class="column" style="border-bottom: 12px solid white;">
                     <div class="yes"> YES </div>
                     {html(node.stmt)}
                     {html(node.next)}
@@ -99,7 +99,7 @@ def html(node):
         {html(node.stmt)}
         {html(node.cond)} 
         <div class="row">
-            <div class="column" style="border-bottom: 8px solid white;">
+            <div class="column" style="border-bottom: 12px solid white;">
                 <div class="yes"> YES </div>
             </div>
             <div class="column">
@@ -111,6 +111,7 @@ def html(node):
 '''
     return f'<div class="block" style="background-color:{random_color()}"> {CGenerator().visit(node)} </div>'
 
-declarations = parse_file(argv[1]).ext
-for declaration in declarations:
-    print(html(declaration))
+for declaration in parse_file(argv[1]).ext:
+    with open(f'flowcharts/{declaration.decl.name}.html', 'w') as f:
+        print(html(declaration))
+        f.write(html(declaration))
