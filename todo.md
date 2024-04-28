@@ -1,3 +1,4 @@
- - Compile the syntax tree to graphics(SVG)
- - Clean the parser with parsing combinators
- - Allow special characters in text
+# TODO:
+ - implement all syntactic structures. structs, enums, switches
+ - function links, goto links, type links.
+ - proper output directory structure
